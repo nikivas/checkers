@@ -1,0 +1,72 @@
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\1\Desktop\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChess\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditory\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\1\Desktop\mi4nikChess\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+E:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+F:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.exe
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.pdb
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.exe
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\bin\Debug\chess_for_damn.pdb
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
