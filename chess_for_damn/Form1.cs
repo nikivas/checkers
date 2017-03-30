@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Net.Sockets;
 
 namespace chess_for_damn
 {
@@ -23,6 +23,14 @@ namespace chess_for_damn
         Cell[,] buf = new Cell[8, 8]; // AI cup
 
 
+
+        // for Network
+        //
+        TcpClient Client;
+        int port = 8005;
+        //</for Network>
+
+
         //
         // move_queve - массив для значений подсвеченных ячеек
         //
@@ -32,10 +40,12 @@ namespace chess_for_damn
         //
         // delItems - что-то типо мапа где одному значению ячейки из move_queve 
         // соответствует массив Cell-ов которые удалятся при ходе в эту клетку
+        //
+        //
         List<Deleted_Items> delItems = new List<Deleted_Items>();
 
-        int AI_CON = 1;
-        int NOT_AI = 2;
+        int AI_CON = 2;
+        int NOT_AI = 1;
 
         int otkuda_x;
         int otkuda_y;
@@ -141,10 +151,10 @@ namespace chess_for_damn
                 }
             }
 
-            if (AI_CON == 1)
-            {
-                makeChoose();
-            }
+            //if (AI_CON == 1)
+            //{
+            //    makeChoose();
+            //}
         }
 
 
@@ -170,7 +180,7 @@ namespace chess_for_damn
                 if (flag_to_win_ai == 0)
                 {
                     this.timer1.Enabled = false;
-                    MessageBox.Show("ПАТ !!!");
+                    
                 }
                 
                 return;
@@ -494,9 +504,11 @@ namespace chess_for_damn
         private void Win(string who)
         {
             Clear();
-            MessageBox.Show(who+" IS WIN!!!");              // Вывод сообщения о победе
+            //MessageBox.Show(who+" IS WIN!!!");              // Вывод сообщения о победе
             label1.Text = "NICE JOB, YOU MAY EXIT";         // И еще мы меняем лейблик
         }
+
+
 
         private void Any_Click(object sender, EventArgs e)
         {
@@ -894,6 +906,7 @@ namespace chess_for_damn
                     pole[i - 2, j + 2].mypic.Image = possible_step.Image;
                     buf_del = new Deleted_Items(pole[i - 2, j + 2], bufL);
                     delItems.Add(buf_del);
+                    canMove(pole[i - 2, j + 2], 0, bufL, currentCond);
 
                     move_queve.Add(pole[i - 2, j + 2]);
                 }
@@ -922,7 +935,7 @@ namespace chess_for_damn
 
                     buf_del = new Deleted_Items(pole[i + 1, j - 1], bufL);
                     delItems.Add(buf_del);
-
+                    
                     move_queve.Add(pole[i + 1, j - 1]);
                 }
                 if (i < 6 && j > 1 && pole[i + 1, j - 1].Condition != 0 && pole[i + 1, j - 1].Condition != currentCond && pole[i + 2, j - 2].Condition == 0)
@@ -935,7 +948,7 @@ namespace chess_for_damn
                     pole[i + 2, j - 2].mypic.Image = possible_step.Image;
                     buf_del = new Deleted_Items(pole[i + 2, j - 2], bufL);
                     delItems.Add(buf_del);
-
+                    canMove(pole[i + 2, j - 2], 0, bufL, currentCond);
                     move_queve.Add(pole[i + 2, j - 2]);
                 }
                 i++;
@@ -980,7 +993,7 @@ namespace chess_for_damn
                     pole[i + 2, j + 2].mypic.Image = possible_step.Image;
                     buf_del = new Deleted_Items(pole[i + 2, j + 2], bufL);
                     delItems.Add(buf_del);
-
+                    canMove(pole[i + 2, j + 2], 0, bufL, currentCond);
                     move_queve.Add(pole[i + 2, j + 2]);
                 }
                 i++;
@@ -1022,7 +1035,7 @@ namespace chess_for_damn
                     pole[i - 2, j - 2].mypic.Image = possible_step.Image;
                     buf_del = new Deleted_Items(pole[i - 2, j - 2], bufL);
                     delItems.Add(buf_del);
-
+                    canMove(pole[i - 2, j - 2], 0, bufL, currentCond);
                     move_queve.Add(pole[i - 2, j - 2]);
                 }
                 i--;
@@ -1047,10 +1060,177 @@ namespace chess_for_damn
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (flagOnStep == AI_CON && flag_for_timer == 1)
+            Connect();
+        }
+
+
+        private void Connect()
+        {
+            
+            try { 
+                Client = new TcpClient("127.0.0.1", port);
+            } catch(Exception e) {
+                //Client.Close();
+                richTextBox1.Text += "\nError\n";
+                Connect();
+                return;
+            }
+
+            string color = AI_CON == 1 ? "white\r\n\r\n" : "black\r\n\r\n";
+            NetworkStream cin = Client.GetStream();
+
+            try
             {
-                makeChoose();
+                byte[] data = new byte[1024];
+                data = Encoding.ASCII.GetBytes(color);
+
+                cin.Write(data, 0, data.Length);
+
+                string Request = "";
+                // Буфер для хранения принятых от клиента данных
+                byte[] Buffer = new byte[1024];
+                // Переменная для хранения количества байт, принятых от клиента
+                int Count;
+                // Читаем из потока клиента до тех пор, пока от него поступают данные
+                while ((Count = Client.GetStream().Read(Buffer, 0, Buffer.Length)) > 0)
+                {
+                    // Преобразуем эти данные в строку и добавим ее к переменной Request
+                    Request += Encoding.ASCII.GetString(Buffer, 0, Count);
+                    // Запрос должен обрываться последовательностью \r\n\r\n
+                    // Либо обрываем прием данных сами, если длина строки Request превышает 4 килобайта
+
+                    if (Request.IndexOf("\r\n\r\n") >= 0 || Request.Length > 4096)
+                    {
+                        break;
+                    }
+                }
+
+                if (Request == "BAD\r\n\r\n")
+                {
+                    cin.Flush();
+                    cin.Close();
+                    Client.Close();
+                }
+                else
+                {
+                    draw(Request);
+                    makeChoose();
+                    byte[] data2 = new byte[1024];
+                    data2 = Encoding.ASCII.GetBytes(SaveToString());
+                    cin.Write(data2, 0, data2.Length);
+
+                }
+            }
+            catch (Exception e)
+            {
+                cin.Flush();
+                cin.Close();
+                Client.Close();
+            }
+
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            timer1.Enabled = true;
+        }
+
+        private void draw(String s)
+        {
+            int k = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (s[k] == '1')
+                    {
+                        pole[i, j].mypic.Image = white_chess.Image;
+                        pole[i, j].Condition = 1;
+                    }
+                    else if (s[k] == '2')
+                    {
+                        pole[i, j].mypic.Image = black_chess.Image;
+                        pole[i, j].Condition = 2;
+                    }
+                    else if (s[k] == '3')
+                    {
+                        pole[i, j].mypic.Image = white_queen.Image;
+                        pole[i, j].Condition = 1;
+                    }
+                    else if (s[k] == '4')
+                    {
+                        pole[i, j].mypic.Image = black_queen.Image;
+                        pole[i, j].Condition = 2;
+                    }
+                    else
+                    {
+                        if ((i + 1) % 2 == 1)
+                        {
+                            if ((j + 1) % 2 == 1)
+                            {
+                                pole[i, j].mypic.Image = white.Image;
+                                pole[i, j].Condition = 0;
+                            }
+                            else { 
+                                pole[i, j].mypic.Image = black.Image;
+                                pole[i, j].Condition = 0;
+                            }
+                        }
+                        else
+                        {
+                            if ((j + 1) % 2 == 1)
+                            {
+                                pole[i, j].mypic.Image = black.Image;
+                                pole[i, j].Condition = 0;
+                            }
+                            else
+                            {
+                                pole[i, j].mypic.Image = white.Image;
+                                pole[i, j].Condition = 0;
+                            }
+                        }
+                    }
+                    k++;
+                }
+
             }
         }
+
+        private string SaveToString()
+        {
+            string buf = "";
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (pole[i, j].mypic.Image == white.Image || pole[i, j].mypic.Image == black.Image)
+                    {
+                        buf = buf + "0";
+                    }
+                    else if (pole[i, j].mypic.Image == white_chess.Image)
+                    {
+                        buf = buf + "1";
+                    }
+                    else if (pole[i, j].mypic.Image == white_queen.Image)
+                    {
+                        buf = buf + "3";
+                    }
+                    else if (pole[i, j].mypic.Image == black_chess.Image)
+                    {
+                        buf = buf + "2";
+                    }
+                    else if (pole[i, j].mypic.Image == black_queen.Image)
+                    {
+                        buf = buf + "4";
+                    }
+                }
+            }
+
+            return buf+"\r\n\r\n";
+        }
+
     }
 }

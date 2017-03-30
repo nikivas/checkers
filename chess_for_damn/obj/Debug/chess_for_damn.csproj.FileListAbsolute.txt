@@ -70,3 +70,21 @@ D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_dam
 D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
 D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
 D:\UNIVER!!!!!!\Мичник\mi4nikChess (1)\mi4nikChessAuditoryAI\chess_for_damn\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\Nikita\Downloads\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
