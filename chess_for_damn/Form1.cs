@@ -151,6 +151,14 @@ namespace chess_for_damn
                 }
             }
 
+
+
+
+            Board b = new Board(SaveToString());
+            List<Board> lst1 = new List<Board>();
+            lst1 = b.getPossibleBoards(1);
+            //draw("0101010110101010000101010000002001000000202020000202020220202020\rr");
+
             //if (AI_CON == 1)
             //{
             //    makeChoose();
@@ -166,285 +174,246 @@ namespace chess_for_damn
         //
         */
 
-        private void AI_moving(List<logicStruct> rat) // 
+        
+
+        private void makeChoose(int  depth)
         {
-            List<logicStruct> anyOther = new List<logicStruct>();
-            if (rat.Count == 0 && flag_for_timer == 0)
-            {
-                return;
-            }
-            if (rat.Count == 0)
-            {
-                flag_for_timer = 0;
-                int flag_to_win_ai = checkToWinAI();
-                if (flag_to_win_ai == 0)
-                {
-                    this.timer1.Enabled = false;
-                    
-                }
-                
-                return;
-            }
-            int max = rat[0].fx;
-            int idx=0;
-            for (int i = 0; i < rat.Count; i++)
-            {
-                if (rat[i].fx >= max)
-                {
-                    max = rat[i].fx;
-                    idx = i;
-                }
-            }
+            string currentBoard = SaveToString();
+            List<logicStruct> rating = new List<logicStruct>();
 
-            for (int i = 0; i < rat.Count; i++)
-            {
-                if (rat[i].fx == max)
-                {
-                    anyOther.Add(rat[i]);
-                }
 
+
+            Board first_step = new Board(currentBoard);
+            List<Board> pos_mov = first_step.getPossibleBoards(AI_CON);
+
+            for (int i =0; i < pos_mov.Count; i++)
+            {
+                rating.Add(new logicStruct(pos_mov[i].getCurrentBoard(), 0));
             }
+            int max = -10000;
+            string max_br = "";
+            for(int i = 0; i < rating.Count; i++)
+            {//"0101010110101010000101012000000000000002200020000202020220202020\r  "0101010110101010000101010020000000000002002020000202020220202020\r
+                rating[i].fx = max_f(rating[i].brd,NOT_AI,4) ;/* rateFunc(NOT_AI, rating[i].brd, 5);*/
+                max = max > rating[i].fx ? max : rating[i].fx;
+                max_br = max > rating[i].fx ? max_br : rating[i].brd ;
+            }
+            draw(max_br);
+            flagOnStep = flagOnStep % 2 + 1;
+            int k = 10;
+        }
 
-            Random rnd = new Random();
-            idx = rnd.Next(anyOther.Count);
-
-            //
-            List<Cell> null_Iter = new List<Cell>();
-            buf_pic = anyOther[idx].otkuda;
-            if (buf_pic.mypic.Image == white_queen.Image || buf_pic.mypic.Image == black_queen.Image)
+        public int heuristic(string brd, int condition)
+        {
+            Board tmp = new Board(brd);
+            if(condition == 1)
             {
-                // Если это королева
-                canMoveQueen(buf_pic, 1, null_Iter, AI_CON);                                 //
+                return (tmp.white_queens * 3 + tmp.white_checkers) - (tmp.black_queens * 3 + tmp.black_checkers);
+            }
+            else if (condition == 2)
+            {
+                return (tmp.black_queens * 3 + tmp.black_checkers) - (tmp.white_queens * 3 + tmp.white_checkers); 
             }
             else
             {
-                // Все остальные холопы
-                canMove(buf_pic, 1, null_Iter, AI_CON);                                      //
+                return 0;
             }
-            //
-            this.otkuda_x = anyOther[idx].otkuda.x;
-            this.otkuda_y = anyOther[idx].otkuda.y;
-
-                                                                                       // Если нажали Туда, то тоже чистим подсветку за собой 
-            canGetMove = 0;                                                                     //Go                                         
-            MoveIt(anyOther[idx].kuda);                                                                    //двигаем
-
-            flagOnStep = flagOnStep == 1 ? 2 : 1;                                               // меняем шаг на противоположный
-            label1.Text = flagOnStep == 1 ? "Ход Белых" : "Ход Черных";
-
-            checkToWin();
-            Clear();
-
-
-
         }
 
-        private void makeChoose()
+        public int isTerminal(string brd, int con)
         {
-            List<logicStruct> rating = new List<logicStruct>();
-            for(int i=0; i < 8; i++)
+            Board tmp = new Board(brd);
+            if (tmp.getPossibleBoards(con).Count == 0)
+                return 0;
+            else if (tmp.white_checkers + tmp.white_queens == 0)
+                return 100;
+            else if (tmp.black_checkers + tmp.black_queens == 0)
+                return -100;
+            return 1;
+        }
+
+        public int min_f(string brd, int condition, int depth)
+        {
+            int score = 100000;
+            if(depth <= 0 )
             {
-                for(int j=0; j < 8; j++)
+                return heuristic(brd, AI_CON);
+            }
+            if(isTerminal(brd,condition) == 0)
+            {
+                return 0;
+            }else if(isTerminal(brd,condition) == 100)
+            {
+                if(AI_CON == 2)
                 {
-                    if (pole[i, j].Condition != AI_CON) continue;
-                    ClearDelItems();
+                    return 1000;
+                }
+                else
+                {
+                    return -1000;
+                }
+            } else if(isTerminal(brd,condition) == -100)
+            {
+                if(AI_CON == 1)
+                {
+                    return 1000;
+                }else
+                {
+                    return -1000;
+                }
+            }
+
+            Board tmp = new Board(brd);
+            List<Board> pos_movings = new List<Board>();
+            pos_movings = tmp.getPossibleBoards(condition);
+            for(int i =0; i < pos_movings.Count;i++)
+            {
+                int buf = max_f(pos_movings[i].getCurrentBoard(), condition % 2 + 1, depth - 1);
+                if(score > buf)
+                {
+                    score = buf;
+                }
+            }
+
+
+            return score;
+        }
+
+        public int max_f(string brd, int condition, int depth)
+        {
+            int score = -100000;
+            if (depth <= 0)
+            {
+                return heuristic(brd, AI_CON);
+            }
+            if (isTerminal(brd, condition) == 0)
+            {
+                return 0;
+            }
+            else if (isTerminal(brd, condition) == 100)
+            {
+                if (AI_CON == 2)
+                {
+                    return 1000;
+                }
+                else
+                {
+                    return -1000;
+                }
+            }
+            else if (isTerminal(brd, condition) == -100)
+            {
+                if (AI_CON == 1)
+                {
+                    return 1000;
+                }
+                else
+                {
+                    return -1000;
+                }
+            }
+
+
+
+            Board tmp = new Board(brd);
+            List<Board> pos_movings = new List<Board>();
+            pos_movings = tmp.getPossibleBoards(condition);
+            for (int i = 0; i < pos_movings.Count; i++)
+            {
+                int buf = min_f(pos_movings[i].getCurrentBoard(), condition % 2 + 1, depth - 1);
+                if (score < buf)
+                {
+                    score = buf;
+                }
+            }
+
+
+
+
+
+            return score;
+        }
+
+
+
+
+
+
+
+        public int rateFunc( int condition , string toRateBoard, int depth )
+        {
+            
+            if (--depth < 0)
+            {
+                return 0;
+            }
+            
+            int rat = 0;
+            Board tmp = new Board(toRateBoard);
+            List<Board> brdList = new List<Board>();
+            brdList = tmp.getPossibleBoards(condition);
+
+            if (condition == AI_CON)
+            {
+                
+                for (int i =0; i < brdList.Count; i++)
+                {
+                    //rat = 0;
+                    if (AI_CON == 1) // если белый - AI
+                    {
+                        int buf = 0;
+                        buf -= (tmp.white_queens * 3 + tmp.white_checkers) - (brdList[i].white_queens * 3 + brdList[i].white_checkers);
+                        buf += (tmp.black_queens * 3 + tmp.black_checkers) - (brdList[i].black_queens * 3 + brdList[i].black_checkers);
+                        buf += rateFunc(NOT_AI, brdList[i].getCurrentBoard(), depth);
+                        rat = rat >= buf ? rat : buf; 
+                    }
+                    else // если черный - меняем знаки;
+                    {
+                        int buf = 0;
+                        buf += (tmp.white_queens * 3 + tmp.white_checkers) - (brdList[i].white_queens * 3 + brdList[i].white_checkers);
+                        buf -= (tmp.black_queens * 3 + tmp.black_checkers) - (brdList[i].black_queens * 3 + brdList[i].black_checkers);
+                        buf += rateFunc(NOT_AI, brdList[i].getCurrentBoard(), depth);
+                        rat = rat >= buf ? rat : buf;
+                    }
                     
+                    
+                }
+                
+            }
 
+            else if (condition == NOT_AI)
+            {
 
-                    List<Cell> null_Iter = new List<Cell>();
-                    Cell buf_p = pole[i, j];
-                    if (buf_p.mypic.Image == white_queen.Image || buf_p.mypic.Image == black_queen.Image)
+                for (int i = 0; i < brdList.Count; i++)
+                {
+                    if (NOT_AI == 1) // если белый -NOT_AI
                     {
-                        ClearDelItems();
-                        canMoveQueen(buf_p, 1, null_Iter, buf_p.Condition);
-                    }
-                    else
-                    {
-                        ClearDelItems();
-                        canMove(buf_p, 1, null_Iter, buf_p.Condition); 
-                    }
-
-                    for(int k =0; k<move_queve.Count;k++)
-                    {
-                        int rat = funcChoose(i, j, move_queve[k].y, move_queve[k].x);
-
-                        rating.Add(new logicStruct(pole[i, j], move_queve[k], rat));
+                        int buf = 0;
+                        buf -= (tmp.white_queens * 3 + tmp.white_checkers) - (brdList[i].white_queens * 3 + brdList[i].white_checkers);
+                        buf += (tmp.black_queens * 3 + tmp.black_checkers) - (brdList[i].black_queens * 3 + brdList[i].black_checkers);
+                        buf *= -1;
+                        buf += rateFunc(AI_CON, brdList[i].getCurrentBoard(), depth) ;
                         
+                        rat = rat <= buf ? rat : buf;
                     }
-                    Clear();
-                    //canGetMove = 1;
-                }
-            }
-            //return rating;
-            AI_moving(rating);
-
-        }
-
-
-        private int funcChoose(int fromY, int fromX, int toY, int toX)
-        {
-            int answer = 0;
-            int Ans = 0;
-            int count=0;
-            
-            for (int i =0; i < 8; i++)
-            {
-                for(int j =0; j<8; j++)
-                {
-                    buf[i, j] = new Cell(pole[i, j].mypic, pole[i, j].Condition);
-
-                    if (pole[i, j].Condition == NOT_AI) count+=10;
-
-                    buf[i, j].Condition = pole[i, j].Condition;
-                    buf[i, j].x = pole[i, j].x;
-                    buf[i, j].y = pole[i, j].y;
-                    buf[i, j].mypic = pole[i, j].mypic;
-                    buf[i, j].mypic.Name = pole[i, j].mypic.Name;
-                }
-            }
-
-
-            // checker
-            int check_before = 0;
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (buf[i, j].Condition == AI_CON)
+                    else // если черный - меняем знаки;
                     {
-                        check_before += checker(buf, i, j);
+                        int buf = 0;
+                        buf += (tmp.white_queens * 3 + tmp.white_checkers) - (brdList[i].white_queens * 3 + brdList[i].white_checkers);
+                        buf -= (tmp.black_queens * 3 + tmp.black_checkers) - (brdList[i].black_queens * 3 + brdList[i].black_checkers);
+                        buf *= -1;
+                        buf += rateFunc(AI_CON, brdList[i].getCurrentBoard(), depth) ;
+                        rat = rat <= buf ? rat : buf;
                     }
-                }
-
-            }
-            //</checker>
-
-            int otkuda_x = fromX;
-            int otkuda_y = fromY;
-
-            buf[otkuda_y, otkuda_x].Condition = 0;
-
-
-            int y = toY;
-            int x = toX;
-
-            if (delItems.Count > 0)
-            {
-                ClearLongItemsAI(buf[y, x]);
-            }
-            
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (buf[i, j].Condition == NOT_AI) Ans += 15;
-                }
-            }
-
-            // checker
-            int check_after = 0;
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (buf[i, j].Condition == AI_CON)
-                    {
-                        check_after += checker(buf, i, j);
-                    }
+                    
                 }
 
             }
 
-            //</checker>
-            int check_sum = check_after - check_before; // тут - по умолчанию на выходе, правда хз насколько все хреново
 
-            answer = count - Ans;
-            answer += checker(buf, toY, toX);
-            return answer + check_sum;
+            return rat;
         }
-
-
-
-        private void MoveItAI(Cell trs, Cell[,] bufer, int fromY, int fromX, int toY, int toX)
-        {
-            // "двигаем" фишку, свапая значения ячеек
-            int x = fromX;
-            int y = fromY;
-
-            ClearLongItemsAI(bufer[y, x]);
-
-            ClearDelItems();
-
-            //
-            bufer[y, x].Condition = bufer[otkuda_y, otkuda_x].Condition;                  //
-            bufer[otkuda_y, otkuda_x].Condition = 0;                                     //
-
-        }
-
-
-        private void ClearLongItemsAI(Cell trs)
-        {
-            //
-            //очистка delItems ячеек, соответствующих ячейке в которую мы походили
-            //
-            int len = delItems.Count;
-
-            for (int i = 0; i < len; i++)
-            {
-                if (delItems[i].greenItem.mypic.Name == trs.mypic.Name)
-                {
-                    ClearAI(delItems[i].deletedItems);
-                }
-            }
-        }
-
-
-
-        private void ClearAI(List<Cell> trs)
-        {
-            //
-            //перегрузка чтобы "чистить" все возможные List-ы
-            //
-            int len = trs.Count;
-
-            for (int i = 0; i < len; i++)
-            {
-
-                int y = trs[0].y;
-                int x = trs[0].x;
-
-                //buffers[y, x].mypic.Image = black.Image;
-                buf[y, x].Condition = 0;
-                //
-                trs.Remove(trs[0]);
-            }
-        }
-
-        private int checker(Cell[,] buf, int y, int x)
-        {
-            int Ans = 0;
-
-            if ((x > 0 && y < 7 && buf[y + 1, x - 1].Condition == NOT_AI) && (y > 0 && x < 7 && buf[y - 1, x + 1].Condition == 0))
-            {
-                Ans-=5;
-            }
-            if ((x < 7 && y > 0 && buf[y - 1, x + 1].Condition == NOT_AI) && (x > 0 && y < 7 && buf[y + 1, x - 1].Condition == 0))
-            {
-                Ans -= 5;
-            }
-            if ((x > 0 && y > 0 && buf[y - 1, x - 1].Condition == NOT_AI) && (x < 7 && y < 7 && buf[y + 1, x + 1].Condition == 0))
-            {
-                Ans -= 5;
-            }
-            if ((x < 7 && y < 7 && buf[y + 1, x + 1].Condition == NOT_AI) && (x > 0 && y > 0 && buf[y - 1, x - 1].Condition == 0))
-            {
-                Ans -= 5;
-            }
-
-            if (Ans < 0)
-                return Ans;
-            return Ans;
-        }
+       
 
 
         private int checkToWinAI()
@@ -520,6 +489,7 @@ namespace chess_for_damn
 
             x = (x / 73) == 8 ? 7 : (x / 73);
             y = (y / 73) == 8 ? 7 : (y / 73);
+            
             buf_pic = pole[y, x];
 
             if (canGetMove == 0 && buf_pic.Condition % 3 != flagOnStep) return; // что то нужное
@@ -535,7 +505,7 @@ namespace chess_for_damn
 
                 if( flagOnStep ==AI_CON)
                 {
-                    makeChoose();
+                    makeChoose(10);
                 }
 
                 if (buf_pic.mypic.Image == white_queen.Image || buf_pic.mypic.Image == black_queen.Image )
@@ -731,7 +701,7 @@ namespace chess_for_damn
                 int y = move_queve[0].y;
                 int x = move_queve[0].x;
 
-                pole[y,x].mypic.Image = black.Image;
+                pole[y, x].mypic.Image = black.Image;
                 pole[y, x].Condition = 0;
 
                 move_queve.Remove(move_queve[0]);
@@ -765,9 +735,8 @@ namespace chess_for_damn
 
             Deleted_Items newDeletedItem;
 
-            string str = pic.mypic.Name.ToString();
-            x = int.Parse(str[5].ToString());
-            y = int.Parse(str[4].ToString());
+            x = pic.x;
+            y = pic.y;
 
             // возможные ходы для Черной в 1 ход
             if (y > 0 && x>0 &&pole[y - 1, x-1].Condition == 0 && currentCond == 2 && firstReqv == 1)
@@ -1076,7 +1045,7 @@ namespace chess_for_damn
                 return;
             }
 
-            string color = AI_CON == 1 ? "white\r\n\r\n" : "black\r\n\r\n";
+            string color = AI_CON == 1 ? "black\r\n\r\n" : "black\r\n\r\n";
             NetworkStream cin = Client.GetStream();
 
             try
@@ -1114,7 +1083,7 @@ namespace chess_for_damn
                 else
                 {
                     draw(Request);
-                    makeChoose();
+                    makeChoose(10);
                     byte[] data2 = new byte[1024];
                     data2 = Encoding.ASCII.GetBytes(SaveToString());
                     cin.Write(data2, 0, data2.Length);

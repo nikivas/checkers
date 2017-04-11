@@ -88,3 +88,21 @@ C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\chec
 C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
 C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
 C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp\checkers-master\checkers-master\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.exe.config
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.exe
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\bin\Debug\chess_for_damn.pdb
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.csprojResolveAssemblyReference.cache
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.Form1.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.Properties.Resources.resources
+C:\Users\Nikita\Desktop\учеба\Мичник\judge\try to depth\sharp_to_git\checkers\chess_for_damn\obj\Debug\chess_for_damn.csproj.GenerateResource.Cache

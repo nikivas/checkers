@@ -13,6 +13,7 @@ namespace chess_for_damn
         public int x;
         public int y;
         public int Condition;
+        public int chessCondition;
         public Cell(System.Windows.Forms.PictureBox anyPic, int newCond)
         {
 
@@ -25,6 +26,7 @@ namespace chess_for_damn
             
 
         }
+        public Cell() { }
 
     }
 
